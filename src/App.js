@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import RichTextEditor from './components/RichTextEditor';
 
+const config = {
+	buttons:["bold","italic"]
+}
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [value,setValue]=useState('')
+	return (
+		<div className="App row">
+			<h1> jodit Text Editor</h1>
+			{/* <RichTextEditor setValue={setValue} config={config} /> */}
+			<RichTextEditor setValue={setValue} config={config} />
+			<br />
+			<p>{ value}</p>
+		</div>
+	);
 }
 
 export default App;
